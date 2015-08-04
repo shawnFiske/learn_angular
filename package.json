@@ -1,0 +1,33 @@
+{
+  "name": "Angular_and_Server",
+  "version": "0.1.0",
+  "description": "Angular and Server",
+  "main": "initServer.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "gulp"
+  },
+  "author": "Shawn Fiske",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.4.3",
+    "express": "^4.13.1",
+    "body-parser": "^1.13.2",
+    "mongoose": "^4.0.7"
+  },
+  "devDependencies": {
+    "gulp-webpack": "^1.5.0",
+    "chai": "^3.0.0",
+    "chai-http": "^1.0.0",
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-mocha": "^2.1.2",
+    "mocha": "^2.2.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shawnFiske/data_structures_algorithms_1.git"
+  }
+}
