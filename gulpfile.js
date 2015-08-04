@@ -8,6 +8,7 @@ var mocha = require('gulp-mocha');
 gulp.task('webpack:dev', function() {
   return gulp.src('app/js/client.js')
              .pipe(webpack({
+              watch: true, //does a watch for save
               output: {
                 filename: 'bundle.js'
               }
