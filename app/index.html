@@ -4,8 +4,14 @@
   <meta charset="UTF-8"
   <title></title>
 </head>
-<body data-ng-app="myApp">
-  <p>Hello World!</p>
-<script src="bundle.js"></script>
+<body data-ng-app="board">
+  <main data-ng-controller="tileController">
+    <h1>Create Board Tile</h1>
+    <h3>{{description}}</h3>
+    <h2>Terrain: {{terrain}}</h2>
+    <input type="text" data-ng-model="terrain">
+    <button data-ng-click="nextTile()">Create Tile</button>
+  </main>
+  <script src="bundle.js"></script>
 </body>
 </html>
