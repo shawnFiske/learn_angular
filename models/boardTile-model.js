@@ -4,7 +4,8 @@ var boardTileSchema  = mongoose.Schema({
   hasEncounters: Boolean,
   encounters: Array,
   hasPlayers: Boolean,
-  players: Array
+  players: Array,
+  editing: Boolean
 });
 
 
