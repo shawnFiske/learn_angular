@@ -1,0 +1,1 @@
+require(__dirname + '/board_controller_tests');

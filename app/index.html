@@ -4,8 +4,30 @@
   <meta charset="UTF-8"
   <title></title>
 </head>
-<body data-ng-app="myApp">
-  <p>Hello World!</p>
-<script src="bundle.js"></script>
+<body data-ng-app="board">
+  <main data-ng-controller="boardController" data-ng-init="getAll()">
+    <h1>Create Board Tile</h1>
+    <h3>{{description}}</h3>
+
+    <form name="newTileForm" data-ng-submit="create(newTile)">
+      <label for="newTileName">Tile Body:</label>
+      <input type="text" required name="newTileName" data-ng-model="newTile.tileName">
+      <button type="submit" data-ng-disabled="newTileForm.$invalid">Create New Tile</button>
+    </form>
+
+     <ul>
+      <li data-ng-repeat="tile in tiles">{{tile.terrain[0]}}
+        <form data-ng-if="tile.editing" name="{{tile._id}}form" data-ng-submit="update(tile)">
+          <input type="text" data-ng-model="tile.terrain[0]">
+          <button type="submit">Save</button>
+          <button data-ng-click="cancel(tile)">Cancel</button>
+        </form> 
+        <button data-ng-if="!tile.editing" data-ng-click="edit(tile)">Edit</button>
+        <button data-ng-click="destroy(tile)">Delete</button>
+      </li>
+    </ul>
+
+  </main>
+  <script src="bundle.js"></script>
 </body>
 </html>

@@ -3,5 +3,5 @@
 require('angular/angular');
 
 //create a module
-var myApp = angular.module('myApp', []);
-
+var board = angular.module('board', []);
+require('./game/board')(board);
