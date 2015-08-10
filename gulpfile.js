@@ -2,13 +2,11 @@
 
 var gulp = require('gulp');
 var webpack = require('gulp-webpack');
-var jshint = require('gulp-jshint');
-var mocha = require('gulp-mocha');
+var KarmaServer = require('karma').Server;
 
 gulp.task('webpack:dev', function() {
   return gulp.src('app/js/client.js')
              .pipe(webpack({
-              watch: true, //does a watch for save
               output: {
                 filename: 'bundle.js'
               }
@@ -16,29 +14,26 @@ gulp.task('webpack:dev', function() {
              .pipe(gulp.dest('build/'));
 });
 
+gulp.task('webpack:test', function() {
+  return gulp.src('test/karma_tests/entry.js')
+             .pipe(webpack({
+              output: {
+                filename: 'test_bundle.js'
+              }
+             }))
+             .pipe(gulp.dest('test/karma_tests/'));
+});
+
 gulp.task('copy', function(){
   return gulp.src('app/**/*.html')
              .pipe(gulp.dest('build/'));
 });
 
-gulp.task('test', function(){
-  return gulp.src('test/*test.js')
-             .pipe(mocha());
+gulp.task('karmatest',['webpack:test'], function(done){
+  new KarmaServer({
+    configFile: __dirname + '/karma.conf.js'
+  }, done).start();
 });
 
-gulp.task('lint', function(){
-  return gulp.src('*.js')
-             .pipe(jshint())
-             .pipe(jshint.reporter('default'));
-});
-
-gulp.task('default', ['lint','test'], function() {});
 gulp.task('build', ['webpack:dev', 'copy']);
-gulp.task('default', ['build']);
-
-
-// watch breaks server requests
-// gulp.task('watch', function() {
-//   //gulp.watch('*.js', ['test', 'lint']);
-//   gulp.watch('*.js', ['test']);
-// });
+gulp.task('default', ['karmatest','build']);

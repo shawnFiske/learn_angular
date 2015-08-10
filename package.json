@@ -1,8 +1,8 @@
 {
-  "name": "Angular_and_Server",
+  "name": "board_game",
   "version": "0.1.0",
-  "description": "Angular and Server",
-  "main": "initServer.js",
+  "description": "Board Game",
+  "main": "gulpfile.js",
   "directories": {
     "test": "test"
   },
@@ -18,16 +18,20 @@
     "mongoose": "^4.0.7"
   },
   "devDependencies": {
-    "gulp-webpack": "^1.5.0",
-    "chai": "^3.0.0",
+    "angular-mocks": "^1.4.3",
+    "chai": "^3.2.0",
     "chai-http": "^1.0.0",
     "gulp": "^3.9.0",
-    "gulp-jshint": "^1.11.2",
-    "gulp-mocha": "^2.1.2",
-    "mocha": "^2.2.5"
+    "gulp-webpack": "^1.5.0",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.8",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "mocha": "^2.2.5",
+    "phantomjs": "^1.9.17"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shawnFiske/data_structures_algorithms_1.git"
+    "url": "https://github.com/shawnFiske/learn_angular.git"
   }
 }
